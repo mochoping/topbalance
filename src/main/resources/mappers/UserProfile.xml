@@ -6,7 +6,7 @@
 <mapper namespace="com.topBalance.wishTree.mapper.UserMapper">
 <!-- sql 문을 보낼 때 보낼 표기명 id에 작성-->
     <select id="getAllUsers" >
-        SELECT * FROM USERPROFILE
+        SELECT * FROM USER
     </select>
 
 
