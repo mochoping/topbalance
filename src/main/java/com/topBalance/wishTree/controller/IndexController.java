@@ -1,11 +1,13 @@
 package com.topBalance.wishTree.controller;
 
 
+import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -29,7 +31,15 @@ public class IndexController {
         return "register";
     }
 
-    @PostMapping
+    @PostMapping("/register-success")
+    public String registerSuccess(@ModelAttribute("user") User user, Model model) {
+        userService.insertUser(user);
+        model.addAttribute("msg", "회원가입이 성공적으로 완료되었습니다.");
+        return "success";
+    }
+
+    @GetMapping("/update")
+    public String
 
 
 }

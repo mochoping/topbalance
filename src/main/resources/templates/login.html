@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xml:th="http://www.thymeleaf.org" lang="ko">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="login-container">
+    <form action="/register-success" method="post">
+        <label for="userId">아이디</label>
+        <input type="text" id="userId" name="userId" required>
+
+        <label for="userPassword">비밀번호</label>
+        <input type="password" id="userPassword" name="userPassword" required>
+
+        <label for="userName">이름</label>
+        <input type="text" id="userName" name="userName" required>
+
+        <label for="userPhone">핸드폰번호</label>
+        <input type="text" id="userPhone" name="userPhone" required>
+
+        <label for="userBirthdate">생년월일</label>
+        <input type="Date" id="userBirthdate" name="userBirthdate" required>
+
+        <label>성별</label>
+        <label for="male">남성
+            <input type="radio" id="male" name="userGender" value="MALE">
+        </label>
+        <label for="female">여성
+            <input type="radio" id="female" name="userGender" value="FEMALE">
+        </label>
+
+        <button type="submit">가입하기</button>
+    </form>
+
+
+</div>
+</body>
+</html>

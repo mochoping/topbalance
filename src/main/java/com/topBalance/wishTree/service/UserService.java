@@ -17,5 +17,5 @@ public interface UserService {
     // 정보수정
     void updateUser(User user);
 
-
+    void insertUser(User user);
 }
