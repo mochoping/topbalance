@@ -5,6 +5,8 @@ import jakarta.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
 import lombok.*;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,10 +17,13 @@ public class User {
     @Id // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
-    private String userBirthdate;
-    private String userGender;
     private String userPassword;
-    private int dailyVisit;
-    private String userPhone;
     private String userName;
+    private String userPhone;
+    private Date userBirthdate;
+    private String userGender;
+    private int ranking;
+    private int totalScore;
+    private Date gameDate;
+    private int dailyVisit;
 }
