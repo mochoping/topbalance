@@ -15,15 +15,13 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
-  /*  @GetMapping
+    @GetMapping
     public String index(Model model) {
-        model.addAttribute("message", "hello world");
-        List<Map<String, Object>> users= userService.getAllUsers();
+        List<Map<String, Object>> users = userService.getAllUsers();
+        model.addAttribute("users", users);
         return "index";
-*/
-
     }
 
 
-
 }
+
