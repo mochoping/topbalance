@@ -13,9 +13,11 @@ public interface UserService {
     // 회원가입
 
     // userid로 회원 조회
-    User getUserById(String id);
+    User checkPassword(String userId);
     // 정보수정
-    void updateUser(User user);
+    User updateUser(String userId);
 
     void insertUser(User user);
+
+
 }

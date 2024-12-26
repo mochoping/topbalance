@@ -15,11 +15,43 @@
                 (#{userId},#{userPassword},#{userName},#{userPhone},#{userBirthdate},#{userGender},#{ranking},#{totalScore},#{gameDate},#{dailyVisit})
     </insert>
 
+    <select id="login">
+        SELECT user_id, user_password
+        FROM USER
+        WHERE user_id = #{userId}
+        LIMIT 1
+    </select>
+
+
+    <!--정보수정-->
     <update id="updateUser">
+        UPDATE INTO user (user_id, user_password, user_name, user_phone, user_birthdate, user_gender,)
+        VALUES
+            (#{userId},#{userPassword},#{userName},#{userPhone},#{userBirthdate},#{userGender})
+        Where user_id = #{userId}
 
 
     </update>
+    <!--정보전체조회-->
+    <select id="getUser">
+        SELECT *
+        FROM USER
+        WHERE USER_ID = #{userId}
+    </select>
+    <!--비밀번호찾기-->
+    <select id="findByPassword">
+        SELECT USER_PASSWORD
+        FROM USER
+        WHERE user_id = #{userId}
+    </select>
 
-
+    <!--아이디를 이름, 핸드폰번호, 생년월일로 찾기-->
+    <select id="findById">
+        SELECT user_id
+        FROM USER
+        WHERE user_name = #{userId}
+        AND user_phone = #{userPhone}
+        AND user_birthdate = #{userBirthdate}
+    </select>
 
 </mapper>

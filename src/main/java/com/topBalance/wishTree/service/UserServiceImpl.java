@@ -39,13 +39,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(String id) {
+    public User checkPassword(String userId) {
         return null;
     }
 
     @Override
-    public void updateUser(User user) {
-
+    public User updateUser(String userId) {
+        return userMapper.updateUser(userId);
     }
 
 }
