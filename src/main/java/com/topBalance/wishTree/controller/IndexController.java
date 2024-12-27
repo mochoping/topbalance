@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -16,8 +17,7 @@ import java.util.Map;
 public class IndexController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private UserMapper userMapper;
+
 
     @GetMapping
     public String index(Model model) {
@@ -72,19 +72,35 @@ public class IndexController {
     }
 
     @GetMapping("/find-password")
-    public String findPassword(String userId, String userPhone){
+    public String findByPassword(){
+
         return "find-password";
     }
 
+
     @GetMapping("/find-password-result")
-    public String findPassword(@RequestParam String userId,
+    public String findByPassword(@RequestParam String userId,
                                @RequestParam String userPhone,
                                Model model){
-        String password = userService.findPassword(userId, userPhone);
+        String password = userService.findByPassword(userId, userPhone);
         model.addAttribute("password", password);
         return "find-password-result";
     }
 
+    @GetMapping("/find-id")
+    public String findById(String userName, String userPhone, Date userBirthdate) {
+        return "find-id";
+    }
+
+    @GetMapping("/find-id-result")
+    public String findById(@RequestParam String userName,
+                           @RequestParam String userPhone,
+                           @RequestParam Date userBirthdate,
+                           Model model)  {
+        String findID = userService.findById(userName, userPhone, userBirthdate);
+        model.addAttribute("userId", findID);
+        return "find-id-result";
+    }
 
 }
 

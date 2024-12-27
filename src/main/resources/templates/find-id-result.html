@@ -11,7 +11,7 @@
     <div class="find-container">
         <h1>아이디 확인 결과</h1>
         <p th:text="${userId != null and !userId.isEmpty()
-                ? '입력하신 이름과 확인한 결과 : ' + userId
+                ? '입력하신 이름과 확인한 결과 : ' + userId.userName
                 :'조회된 회원이 없습니다.' }">
         </p>
         <a href="/">메인으로 돌아가기</a>

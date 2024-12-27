@@ -2,6 +2,7 @@ package com.topBalance.wishTree.service;
 
 import com.topBalance.wishTree.dto.User;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -19,5 +20,7 @@ public interface UserService {
 
     void insertUser(User user);
 
-    String findPassword(String userId, String userPhone);
+    String findByPassword(String userId, String userPhone);
+
+    String findById(String userName, String userPhone, Date userBirthdate);
 }

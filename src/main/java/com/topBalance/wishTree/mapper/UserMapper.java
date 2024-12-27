@@ -3,6 +3,7 @@ package com.topBalance.wishTree.mapper;
 import com.topBalance.wishTree.dto.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
@@ -23,7 +24,9 @@ public interface UserMapper {
     User updateUser(String userId);
     //비번찾기 - 아이디,핸드폰번호
 
-    String findPassword(String userId, String userPhone);
+    String findByPassword(String userId, String userPhone);
+
+    String findById(String userName, String userPhone, Date userBirthdate);
 }
 
 
