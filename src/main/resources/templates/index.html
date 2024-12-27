@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
   <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
+<!-- Header -->
+<th:block th:replace="~{layout/header :: header}"></th:block>
+<!-- Main Content -->
 <div class="main-container">
+
     <h1>메인 화면</h1>
     <div>
         <table>
@@ -19,5 +24,8 @@
     </div>
 
 </div>
+<!-- Footer -->
+<th:block th:replace="~{layout/footer :: footer}"></th:block>
+
 </body>
 </html>

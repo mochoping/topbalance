@@ -2,6 +2,7 @@ package com.topBalance.wishTree.controller;
 
 
 import com.topBalance.wishTree.dto.User;
+import com.topBalance.wishTree.mapper.UserMapper;
 import com.topBalance.wishTree.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import java.util.Map;
 public class IndexController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
 
     @GetMapping
     public String index(Model model) {
@@ -56,15 +59,32 @@ public class IndexController {
      */
     @PostMapping("/checkPassword/{userId}")
 
-
+    //@GetMapping("/login")
+    //public String login(@PathVariable("userId") String userId, Model model) {}
 
 
 //회원정보 수정 작성페이지
     @GetMapping("/update/{userId}")
-    public String updateUser(String userId, Model model) {
+    public String updateUser(@PathVariable String userId, Model model) {
         User user = userService.updateUser(userId);
         model.addAttribute("user", user);
         return "update";
     }
+
+    @GetMapping("/find-password")
+    public String findPassword(String userId, String userPhone){
+        return "find-password";
+    }
+
+    @GetMapping("/find-password-result")
+    public String findPassword(@RequestParam String userId,
+                               @RequestParam String userPhone,
+                               Model model){
+        String password = userService.findPassword(userId, userPhone);
+        model.addAttribute("password", password);
+        return "find-password-result";
+    }
+
+
 }
 

@@ -48,4 +48,8 @@ public class UserServiceImpl implements UserService {
         return userMapper.updateUser(userId);
     }
 
+    @Override
+    public String findPassword(String userId, String userPhone) {
+        return userMapper.findPassword(userId,userPhone);
+    }
 }

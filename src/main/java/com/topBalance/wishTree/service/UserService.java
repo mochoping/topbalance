@@ -19,5 +19,5 @@ public interface UserService {
 
     void insertUser(User user);
 
-
+    String findPassword(String userId, String userPhone);
 }

@@ -43,13 +43,14 @@
         SELECT USER_PASSWORD
         FROM USER
         WHERE user_id = #{userId}
+        AND user_phone = #{userphone}
     </select>
 
     <!--아이디를 이름, 핸드폰번호, 생년월일로 찾기-->
     <select id="findById">
         SELECT user_id
         FROM USER
-        WHERE user_name = #{userId}
+        WHERE user_name = #{username}
         AND user_phone = #{userPhone}
         AND user_birthdate = #{userBirthdate}
     </select>
