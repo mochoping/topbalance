@@ -7,11 +7,16 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+<!-- Header -->
+<th:block th:replace="~{layout/header :: header}"></th:block>
+<!-- Main Content -->
 <div class="success-container">
         <h1>회원가입 완료</h1>
         <p th:text="${msg}"></p>
         <a href="/">메인페이지로 이동하기</a>
         <a href="login">로그인</a>
 </div>
+<!-- Footer -->
+<th:block th:replace="~{layout/footer :: footer}"></th:block>
 </body>
 </html>

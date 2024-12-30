@@ -177,3 +177,141 @@ body {
 /**************************************************************/
 /****************** 아래 추가 css 작성  ***********************/
 /**************************************************************/
+
+
+/*******************************register********************************************/
+h1{
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+}
+
+.login-content,
+.register-content,
+.mypage-content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+.register-content
+
+.radioClick {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+.radioClick + .radioClick {
+    margin-top: 1em;
+}
+
+.radioClick:focus-within {
+    color: dodgerblue;
+}
+
+.register-content input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: white;
+    /* Not removed via appearance */
+    margin: 0;
+
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+}
+
+.register-content input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em dodgerblue;
+}
+/***************************************마이페이지***************************************/
+
+.mypage-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.mypage-content
+
+/***************************************파인더***********************************************/
+.find-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+/********************************************로그인*******************************************/
+.login-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.login-content a {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #777777;
+    cursor: pointer;
+}
+.login-content a:hover {
+    background-color: #333333;
+    color: white;
+}

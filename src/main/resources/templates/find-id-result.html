@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+<!-- Header -->
 <th:block th:replace="~{layout/header :: header}"></th:block>
+<!-- Main Content -->
     <div class="find-container">
         <h1>아이디 확인 결과</h1>
         <p th:text="${userId != null and !userId.isEmpty()
@@ -17,7 +19,7 @@
         <a href="/">메인으로 돌아가기</a>
 
     </div>
-    <script src="/js/wishtreeUserRegExp.js"></script>
+<!-- Footer -->
 <th:block th:replace="~{layout/footer :: footer}"></th:block>
 </body>
 </html>

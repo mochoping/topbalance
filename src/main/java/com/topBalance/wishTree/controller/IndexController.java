@@ -104,8 +104,11 @@ public class IndexController {
         Object loggedInUser = session.getAttribute("loggedInUser");
         if (loggedInUser != null) {
             model.addAttribute("user", loggedInUser);
+            return "/update";
+        } else {
+            return "redirect:/login";
         }
-        return "update";
+
     }
     /*public String updateUser(@PathVariable String userId, Model model) {
         User user = userService.updateUser(userId);

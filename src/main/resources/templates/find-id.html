@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+<!-- Header -->
 <th:block th:replace="~{layout/header :: header}"></th:block>
+<!-- Main Content -->
     <div class="find-container">
         <h1>가입한 아이디 찾기</h1>
         <form action="/find-id-result" method="get">
@@ -23,6 +25,7 @@
         <a href="login">로그인</a>
 </div>
     <script src="/js/wishtreeUserRegExp.js"></script>
+<!-- Footer -->
 <th:block th:replace="~{layout/footer :: footer}"></th:block>
 </body>
 </html>
