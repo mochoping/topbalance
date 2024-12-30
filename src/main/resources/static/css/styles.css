@@ -139,7 +139,11 @@ body {
     color: #007bff;
 }
 /* 햄버거 아이콘 */
-.menu-icon {
+.menu-icon
+{
+    cursor: pointer;
+}
+.profile-icon:hover {
     cursor: pointer;
 }
 
@@ -153,9 +157,8 @@ body {
     z-index: 2100;
 }
 
-
 .menu-icon:hover,
-.close-icon:hover {
+.close-icon:hover{
     color: #007bff;
 }
 /* 푸터 */

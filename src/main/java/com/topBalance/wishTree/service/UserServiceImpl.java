@@ -40,13 +40,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User checkPassword(String userId) {
-        return null;
-    }
-
-    @Override
-    public User updateUser(String userId) {
-        return userMapper.updateUser(userId);
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
     }
 
     @Override
@@ -57,5 +52,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public String findById(String userName, String userPhone, Date userBirthdate) {
         return userMapper.findById(userName, userPhone, userBirthdate);
+    }
+
+    @Override
+    public User login(String userId, String userPassword) {
+        return userMapper.login(userId, userPassword);
     }
 }

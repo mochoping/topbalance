@@ -14,13 +14,17 @@ public interface UserService {
     // 회원가입
 
     // userid로 회원 조회
-    User checkPassword(String userId);
+
     // 정보수정
-    User updateUser(String userId);
+    void updateUser(User user);
 
     void insertUser(User user);
 
     String findByPassword(String userId, String userPhone);
 
     String findById(String userName, String userPhone, Date userBirthdate);
+
+    User login(String userId, String userPassword);
+
+
 }
