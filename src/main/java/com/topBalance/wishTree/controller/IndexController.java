@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 public class IndexController {
@@ -86,6 +87,7 @@ public class IndexController {
     @GetMapping("/logout")
     public Object logout(HttpSession session) {
         session.invalidate();
+        session.getAttribute("loggedOutUser");
         return "redirect:/";
     }
 
@@ -94,14 +96,17 @@ public class IndexController {
         Object loggedInUser = session.getAttribute("loggedInUser");
         if (loggedInUser != null) {
             model.addAttribute("user", loggedInUser);
+            return "mypage";
+        } else {
+            return "redirect:/login";
         }
-        return "mypage";
     }
 
     //회원정보 수정 작성페이지
     @GetMapping("/update")
     public String update(Model model, HttpSession session) {
         Object loggedInUser = session.getAttribute("loggedInUser");
+
         if (loggedInUser != null) {
             model.addAttribute("user", loggedInUser);
             return "/update";
@@ -116,10 +121,16 @@ public class IndexController {
         return "update";
     }*/
     @PostMapping("/update-success")
-    public String updateSuccess(@ModelAttribute("user") User user, Model model) {
+    public String updateSuccess(@ModelAttribute("user") User user, Model model, HttpSession session) {
         userService.updateUser(user);
+
+        // DB Latest information
+        User updateUser = userService.findUserById(user.getUserId());
+
+        //Session Latest information
+        session.setAttribute("loggedInUser", updateUser);
         model.addAttribute("msg", "정보수정이 성공적으로 완료되었습니다.");
-        return "update-success";
+        return "redirect:/mypage";
     }
 
     @GetMapping("/find-password")

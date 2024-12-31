@@ -26,6 +26,8 @@ public interface UserMapper {
     String findById(String userName, String userPhone, Date userBirthdate);
 
     User login(String userId, String userPassword);
+
+    User findUserById(String userId);
 }
 
 

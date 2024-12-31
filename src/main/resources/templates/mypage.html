@@ -8,10 +8,10 @@
   <script src="/js/script.js" defer></script>
 </head>
 <body>
-<!-- Header -->
-<th:block th:replace="~{layout/header :: header}"></th:block>
 <!-- Main Content -->
 <div class="mypage-container">
+<!-- Header -->
+<th:block th:replace="~{layout/header :: header}"></th:block>
   <h1>내 정보 보기</h1>
   <div class="mypage-content">
     <span>아이디 :  </span>
@@ -33,10 +33,12 @@
 
   <a href="/update">수정하기</a>
   <a href="/">메인으로 돌아가기</a>
+
+    <p th:if="${msg != null}" th:text="${msg}" style="color: blue;"></p>
   </div>
+<th:block th:replace="~{layout/footer :: footer}"></th:block>
 </div>
 <!-- Footer -->
-<th:block th:replace="~{layout/footer :: footer}"></th:block>
 
 </body>
 </html>

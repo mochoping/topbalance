@@ -26,5 +26,5 @@ public interface UserService {
 
     User login(String userId, String userPassword);
 
-
+    User findUserById(String userId);
 }
