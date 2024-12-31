@@ -28,4 +28,11 @@ public class User {
     private int totalScore;
     private Date gameDate;
     private int dailyVisit;
+
+    public User(String userName, String userPhone, Date userBirthdate) {
+        this.userName = userName;
+        this.userPhone = userPhone;
+        this.userBirthdate = userBirthdate;
+    }
 }
+

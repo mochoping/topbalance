@@ -2,7 +2,6 @@ package com.topBalance.wishTree.controller;
 
 
 import com.topBalance.wishTree.dto.User;
-import com.topBalance.wishTree.mapper.UserMapper;
 import com.topBalance.wishTree.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,19 +9,17 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Controller
 public class IndexController {
     @Autowired
     private UserService userService;
 
-
+    // 테스트용 아이디들 보기
     @GetMapping
     public String index(Model model) {
         List<Map<String, Object>> users = userService.getAllUsers();
@@ -135,29 +132,28 @@ public class IndexController {
 
     @GetMapping("/find-password")
     public String findByPassword() {
-
         return "find-password";
     }
 
 
     @GetMapping("/find-password-result")
-    public String findByPassword(@RequestParam String userId,
-                                 @RequestParam String userPhone,
+    public String findByPassword(@RequestParam("userId") String userId,
+                                 @RequestParam("userPhone") String userPhone,
                                  Model model) {
-        String password = userService.findByPassword(userId, userPhone);
-        model.addAttribute("password", password);
+        String userPassword = userService.findByPassword(userId, userPhone);
+        model.addAttribute("userPassword", userPassword);
         return "find-password-result";
     }
 
     @GetMapping("/find-id")
-    public String findById(String userName, String userPhone, Date userBirthdate) {
+    public String findById() {
         return "find-id";
     }
 
     @GetMapping("/find-id-result")
-    public String findById(@RequestParam String userName,
-                           @RequestParam String userPhone,
-                           @RequestParam Date userBirthdate,
+    public String findById(@RequestParam("userName") String userName,
+                           @RequestParam("userPhone") String userPhone,
+                           @DateTimeFormat(pattern = "yyyy-MM-dd") Date userBirthdate,
                            Model model) {
         String findID = userService.findById(userName, userPhone, userBirthdate);
         model.addAttribute("userId", findID);
