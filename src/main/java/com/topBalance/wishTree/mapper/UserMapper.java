@@ -27,6 +27,8 @@ public interface UserMapper {
 
     //유저 아이디로 전체 정보 호출 - 유저 정보 불러오기시 필요
     User findUserById(String userId);
+
+    boolean checkUsers(String userId);
 }
 
 

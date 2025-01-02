@@ -6,8 +6,10 @@
 <mapper namespace="com.topBalance.wishTree.mapper.UserMapper">
 <!-- sql 문을 보낼 때 보낼 표기명 id에 작성-->
     <!-- 전체조회-->
-    <select id="getAllUsers" >
-        SELECT * FROM USER
+    <select id="checkUsers" >
+        SELECT Count(user_id)
+        FROM USER
+        WHERE user_id = #{userId}
     </select>
     <!-- 회원가입-->
     <insert id="insertUser">

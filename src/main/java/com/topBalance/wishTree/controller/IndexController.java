@@ -33,7 +33,11 @@ public class IndexController {
 
         return "register";
     }
-
+    @PostMapping("/register")
+    public String register(@RequestParam("userId") String userId) {
+        boolean userExists = userService.checkUsers(userId);
+        return "register";
+    }
     //가입 성공 페이지
     @PostMapping("/register-success")
     public String registerSuccess(@ModelAttribute("user") User user, Model model) {
