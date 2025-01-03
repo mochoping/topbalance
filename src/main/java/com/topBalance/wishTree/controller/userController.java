@@ -95,7 +95,6 @@ public class userController {
     @GetMapping("/logout")
     public Object logout(HttpSession session) {
         session.invalidate();
-        session.getAttribute("loggedOutUser");
         return "redirect:/";
     }
 
