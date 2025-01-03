@@ -8,7 +8,8 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    //List<User> getAllUsers();
+    //메인 전체조회
+    List<User> getAllUsers();
 
     //회원가입 - 유저저장하기
     void insertUser(User user);

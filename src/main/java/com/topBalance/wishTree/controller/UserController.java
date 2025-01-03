@@ -3,7 +3,6 @@ package com.topBalance.wishTree.controller;
 
 import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.service.UserService;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +17,17 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class userController {
+public class UserController {
     @Autowired
     private UserService userService;
 
     // 테스트용 아이디들 보기
-    /*@GetMapping
+    @GetMapping("/")
     public String index(Model model) {
         List<Map<String, Object>> users = userService.getAllUsers();
         model.addAttribute("users", users);
         return "index";
-    }*/
+    }
 
     //회원 가입
     @GetMapping("/register")
@@ -122,11 +121,7 @@ public class userController {
         }
 
     }
-    /*public String updateUser(@PathVariable String userId, Model model) {
-        User user = userService.updateUser(userId);
-        model.addAttribute("user", user);
-        return "update";
-    }*/
+
     @PostMapping("/update-success")
     public String updateSuccess(@ModelAttribute("user") User user, Model model, HttpSession session) {
         userService.updateUser(user);

@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
-  /*
+
     @Override
     public List<Map<String, Object>> getAllUsers() {
         List<User> userList = userMapper.getAllUsers();
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
             return userMap;
         }).collect(Collectors.toList());
     }
-    */
+
 
     @Override
     public void insertUser(User user) {
