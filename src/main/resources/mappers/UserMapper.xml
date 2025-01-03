@@ -5,9 +5,9 @@
     namespace 내에 mapper경로 작성-->
 <mapper namespace="com.topBalance.wishTree.mapper.UserMapper">
 <!-- sql 문을 보낼 때 보낼 표기명 id에 작성-->
-    <!-- 전체조회-->
+    <!-- 아이지 중복 체크-->
     <select id="checkUsers" >
-        SELECT Count(user_id)
+        SELECT Count(*)
         FROM USER
         WHERE user_id = #{userId}
     </select>

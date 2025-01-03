@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    List<User> getAllUsers();
+    //List<User> getAllUsers();
 
     //회원가입 - 유저저장하기
     void insertUser(User user);
@@ -28,7 +28,7 @@ public interface UserMapper {
     //유저 아이디로 전체 정보 호출 - 유저 정보 불러오기시 필요
     User findUserById(String userId);
 
-    boolean checkUsers(String userId);
+    int checkUsers(String userId);
 }
 
 

@@ -3,6 +3,8 @@ package com.topBalance.wishTree.controller;
 
 import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.service.UserService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,22 +12,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @Controller
-public class IndexController {
+public class userController {
     @Autowired
     private UserService userService;
 
     // 테스트용 아이디들 보기
-    @GetMapping
+    /*@GetMapping
     public String index(Model model) {
         List<Map<String, Object>> users = userService.getAllUsers();
         model.addAttribute("users", users);
         return "index";
-    }
+    }*/
 
     //회원 가입
     @GetMapping("/register")
@@ -33,10 +36,14 @@ public class IndexController {
 
         return "register";
     }
-    @PostMapping("/register")
-    public String register(@RequestParam("userId") String userId) {
+    // 아이디 중복 확인용
+    @PostMapping("/check-userId")
+    public void checkUsers(@RequestParam("userId") String userId,
+                            HttpServletResponse response)
+                            throws IOException {
         boolean userExists = userService.checkUsers(userId);
-        return "register";
+        response.setContentType("application/json");
+        response.getWriter().write("{\"userExists\" : " + userExists + "}");
     }
     //가입 성공 페이지
     @PostMapping("/register-success")
