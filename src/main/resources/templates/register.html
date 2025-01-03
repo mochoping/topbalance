@@ -24,7 +24,8 @@
     <th:block th:replace="~{layout/header :: header}"></th:block>
     <H1>회원가입</H1>
     <form action="/register-success" method="post" id="checkRegExp" class="register-content"
-          enctype="application/x-www-form-urlencoded">
+          enctype="application/x-www-form-urlencoded"
+          onsubmit="return false"> <!-- 제출막기-->
         <div>
             <label for="userId">아이디</label>
             <input type="text" id="userId" name="userId" onblur="ExpcheckId(event)" required>
@@ -41,7 +42,7 @@
                         return;
                     }
                     $.ajax({
-                        url: '/check-userId"',
+                        url: '/check-userId',
                         type: 'POST',
                         data: {userId: userId},
                         success: function (response) {

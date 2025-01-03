@@ -39,8 +39,8 @@ public class userController {
     // 아이디 중복 확인용
     @PostMapping("/check-userId")
     public void checkUsers(@RequestParam("userId") String userId,
-                            HttpServletResponse response)
-                            throws IOException {
+                            HttpServletResponse response
+                            )throws IOException {
         boolean userExists = userService.checkUsers(userId);
         response.setContentType("application/json");
         response.getWriter().write("{\"userExists\" : " + userExists + "}");

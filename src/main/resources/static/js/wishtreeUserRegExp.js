@@ -1,21 +1,23 @@
 
 
 /****************************************정규식********************************************/
+//정규식들
 const expIdText = /^[A-Za-z가-힇0-9]{4,20}$/;
 const expPwText = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 const expNameText= /^[가-힣]{2,}/;
 const expHpText = /^\d{3}-\d{3,4}-\d{4}$/;
-//아이디 정규식 확인 스크립트
+//유저값
 const userId = document.getElementById("userId");
-const idResult = document.getElementById("id_result");
 const userPw = document.getElementById("userPassword");
 const userRepw = document.getElementById("userRepeatPassword");
+const userName = document.getElementById("userName");
+const userPhone = document.getElementById("userPhone");
+//알림값
+const idResult = document.getElementById("id_result");
 const pwResult1 = document.getElementById("pw_result1");
 const pwResult2 = document.getElementById("pw_result2");
 const nameResult = document.getElementById("name_result");
 const phoneResult = document.getElementById("phone_result");
-const userName = document.getElementById("userName");
-const userPhone = document.getElementById("userPhone");
 
 // 정규식 확인
 function ExpcheckId(event){
@@ -58,10 +60,6 @@ function ExpcheckPhone(event){
 }
 
 
-
-
-
-
 function checkingPw(event) {
     if (userPw.value == userRepw.value) {
         pwResult2.className = "enabled";
@@ -72,3 +70,6 @@ function checkingPw(event) {
     pwResult2.innerText = "비밀번호가 일치하지 않습니다.";
 }
 
+function acceptSubmit(){
+    form.submit();
+}
